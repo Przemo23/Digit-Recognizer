@@ -1,12 +1,21 @@
 # Digit-Recognizer
-Python script for digit recognition in an image.
+Python script for digit recognition in an image. It works with PNG, JPG and EPS files. The preprocessing \
+of images is done using OpenCV and the digit recognition is powered by Tesseract OCR. 
+
+
+Original image: \
+![alt text](https://github.com/Przemo23/Digit-Recognizer/blob/main/data/train_2.png?raw=true) 
+
+
+Processed image: \
+![alt text](https://github.com/Przemo23/Digit-Recognizer/blob/main/data/train_2_result.png?raw=true)
 
 
 
 ## Preparation before running the script
 
 ### Python and pip
-Firstly make sure you have Python and pip installed on your machine.
+Firstly make sure you have Python and pip installed on your machine.\
 You can check it by typing into the console:
 
 ```
@@ -46,20 +55,22 @@ Linux:
 (digit-recognizer) > pip install -r requirements.txt
 ```
 ### Installing tesseract and ghostcript:
-Tesseract:
-  For Windows
-    Download pytesseract from here:
-    https://github.com/UB-Mannheim/tesseract/wiki
+<b>Tesseract:</b>
+
+  For Windows\
+    Download pytesseract from here:\
+    https://github.com/UB-Mannheim/tesseract/wiki \
     If you don't have Visual C++ for Python compiler make sure to install it as well
-  For Linux:
+    
+  For Linux:\
     sudo apt-get install tesseract-ocr
 
-Ghostscript:
-  Download the right version from your OS here
-  https://www.ghostscript.com/download/gsdnld.html
+<b>Ghostscript:</b>\
+  Download the right version from your OS here\
+  https://www.ghostscript.com/download/gsdnld.html 
   
-For Windows users:
-Open the config.py file and set up the paths to both pytesseract and ghostscript scripts
+For Windows users:\
+Open the config.py file and set up the paths to both pytesseract and ghostscript scripts\
 They should look somewhat like that, but you might have installed them elsewhere:
 ```
 pytesseract_path = 'C:/Program Files/Tesseract-OCR/tesseract.exe'
@@ -71,9 +82,12 @@ To use the script run the command:
 (digit-recognizer) > python digit-recognizer.py -i <input_file_path>
 ```
 ### Additional options:
--o <output_file> - to save the result to a file use this flag. The file should have .PNG extension.
--p - turn off the PLAIN_DIGIT mode. Use this flag if the input image contains other characters besides
-letters or if the digits are clustered inside other contours. It reduces performance, but may produce better
+-o <output_file> - to save the result to a file use this flag. The file should have .PNG extension. \
+-p - turn off the PLAIN_DIGIT mode. Use this flag if the input image contains other characters besides \
+letters or if the digits are clustered inside other contours. It reduces performance, but may produce better \
 results in those cases.
 
+## Possible ways of imporving the script:
+1. Swapping the tesseract digit-recognition tool for a cnn model trained on the SVHN 32X32 dataset.
+2. Usage of YOLO models for digit recognition
 
